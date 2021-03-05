@@ -1,0 +1,207 @@
+<html>
+  <head>
+    <title>Contas a pagar</title>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/finances">Finances</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users">Usuarios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-8 pt-2">
+          <h1 class="fs-2">Listagem de contas a pagar</h1>
+        </div>
+        <div class="col pt-2">
+          <div class="p-3 text-end">
+            <button
+              class="btn btn-info collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo"
+              aria-expanded="false"
+              aria-controls="collapseTwo"
+            >
+              Criar conta
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion" id="accordionExample">
+        <div
+          id="collapseTwo"
+          class="accordion-collapse collapse border-0"
+          aria-labelledby="headingOne"
+          data-bs-parent="#accordionExample"
+        >
+          <form
+            method="POST"
+            action=""
+            novalidate
+            class="row g-3 needs-validation"
+          >
+            <div class="col-md-8">
+              <label for="nome" class="form-label">Nome da conta</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                required
+              />
+              <div class="invalid-feedback">Insira o nome da conta.</div>
+            </div>
+            <div class="col-md-4">
+              <label for="valorOriginal" class="form-label"
+                >Valor da conta</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="valorOriginal"
+                name="valorOriginal"
+                required
+              />
+              <div class="invalid-feedback">Insira o valor da conta.</div>
+            </div>
+            <div class="col-md-4">
+              <label for="dateVencimento" class="form-label"
+                >Data de Vencimento</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="dateVencimento"
+                name="dateVencimento"
+                required
+              />
+              <div class="invalid-feedback">Insira a data de vencimento.</div>
+              <div id="dateVencimentoHelp" class="form-text">
+                A data deve ser inserida como dia/mes/ano.
+              </div>
+            </div>
+            <div class="col-md-4">
+              <label for="datePagamento" class="form-label"
+                >Data de Pagamento</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="datePagamento"
+                name="datePagamento"
+                required
+              />
+              <div id="dateVencimentoHelp" class="form-text">
+                A data deve ser inserida como dia/mes/ano.
+              </div>
+              <div class="invalid-feedback">Insira o valor da conta.</div>
+            </div>
+            <div class="col-12 text-end">
+              <button type="submit" class="btn btn-primary">Enviar</button>
+              <button
+                class="btn btn-info"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                Fechar
+              </button>
+            </div>
+          </form>
+        </div>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingTwo"
+          data-bs-parent="#accordionExample"
+        >
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nome da conta</th>
+                <th>Valor Original</th>
+                <th>Valor Corrigido</th>
+                <th>Quantidade de dias em atraso</th>
+                <th>Data Pagamento</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% finances.forEach(function(item){ %>
+              <tr>
+                <td><%= item.nome %></td>
+                <td><%= item.valorOriginal %></td>
+                <td><%= item.valorCorrigido %></td>
+                <td><%= item.qtDiasEmAtraso %></td>
+                <td><%= item.datePagamento %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function () {
+        'use strict';
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          form.addEventListener(
+            'submit',
+            function (event) {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+
+              form.classList.add('was-validated');
+            },
+            false,
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

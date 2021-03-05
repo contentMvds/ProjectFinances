@@ -1,0 +1,35 @@
+{
+  "name": "finances",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./bin/www",
+    "start": "babel-node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "date-fns": "^2.18.0",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.8.11",
+    "morgan": "~1.9.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.1",
+    "@babel/node": "^7.13.0",
+    "@babel/preset-env": "^7.13.5",
+    "@babel/register": "^7.13.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "kill-port": "^1.6.1",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  }
+}
