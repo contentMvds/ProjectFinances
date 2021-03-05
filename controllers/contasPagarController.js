@@ -38,8 +38,8 @@ export const getContasApagar = async () => {
 
   return result.map((item) => ({
     nome: item.nome,
-    valorOriginal: item.valorOriginal,
-    valorCorrigido: item.valorCorrigido,
+    valorOriginal: item.valorOriginal.toLocaleString('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }),
+    valorCorrigido: item.valorCorrigido.toLocaleString('pt-BR', { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' }),
     qtDiasEmAtraso: item.qtDiasAtraso,
     datePagamento: format(item.datePagamento, formatDate),
   }));
@@ -53,8 +53,12 @@ export const postContaApagar = async ({
 }) => {
   if (!nome) return 'O nome da conta é obrigatorio';
   if (!valorOriginal) return 'O Valor da conta é obrigatorio';
+  if (Number.isNaN(parseFloat(valorOriginal))) return 'Por favor Insira apenas numeros no valor da conta';
   if (!datePagamento) return 'A data de pagamento da conta é obrigatorio';
   if (!dateVencimento) return 'A data de vencimento da conta é obrigatorio';
+  if (datePagamento.indexOf('/') === -1) return 'Formato da data de pagamento invalido';
+  if (dateVencimento.indexOf('/') === -1) return 'Formato da data de Vencimento invalido';
+
   let valorCorrigido = 0;
   let regraAplicada = '';
   let qtDiasAtraso = differenceInDays(

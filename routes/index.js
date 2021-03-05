@@ -8,7 +8,9 @@ const app = express();
 app.use('/finances', finances);
 app.use('/users', users);
 app.use('/', (req, res) => {
-  res.send('Hello word');
+  res.statusCode = 302;
+  res.setHeader('Location', '/finances');
+  res.end();
 });
 
 // catch 404 and forward to error handler

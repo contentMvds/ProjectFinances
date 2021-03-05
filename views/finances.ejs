@@ -38,26 +38,6 @@
       </div>
     </nav>
     <div class="container">
-      <div class="row">
-        <div class="col-8 pt-2">
-          <h1 class="fs-2">Listagem de contas a pagar</h1>
-        </div>
-        <div class="col pt-2">
-          <div class="p-3 text-end">
-            <button
-              class="btn btn-info collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseTwo"
-              aria-expanded="false"
-              aria-controls="collapseTwo"
-            >
-              Criar conta
-            </button>
-          </div>
-        </div>
-      </div>
-
       <div class="accordion" id="accordionExample">
         <div
           id="collapseTwo"
@@ -65,89 +45,116 @@
           aria-labelledby="headingOne"
           data-bs-parent="#accordionExample"
         >
-          <form
-            method="POST"
-            action=""
-            novalidate
-            class="row g-3 needs-validation"
-          >
-            <div class="col-md-8">
-              <label for="nome" class="form-label">Nome da conta</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nome"
-                name="nome"
-                required
-              />
-              <div class="invalid-feedback">Insira o nome da conta.</div>
-            </div>
-            <div class="col-md-4">
-              <label for="valorOriginal" class="form-label"
-                >Valor da conta</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="valorOriginal"
-                name="valorOriginal"
-                required
-              />
-              <div class="invalid-feedback">Insira o valor da conta.</div>
-            </div>
-            <div class="col-md-4">
-              <label for="dateVencimento" class="form-label"
-                >Data de Vencimento</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="dateVencimento"
-                name="dateVencimento"
-                required
-              />
-              <div class="invalid-feedback">Insira a data de vencimento.</div>
-              <div id="dateVencimentoHelp" class="form-text">
-                A data deve ser inserida como dia/mes/ano.
+          <div class="col mt-3 mb-3">
+            <h1 class="fs-2">Formulario do cadastro de contas a pagar</h1>
+            <hr />
+          </div>
+          <div class="container px-5 py-2">
+            <form
+              method="POST"
+              action=""
+              novalidate
+              class="row g-3 needs-validation"
+            >
+              <div class="col-md-8">
+                <label for="nome" class="form-label">Nome da conta</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nome"
+                  name="nome"
+                  required
+                />
+                <div class="invalid-feedback">Insira o nome da conta.</div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <label for="datePagamento" class="form-label"
-                >Data de Pagamento</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="datePagamento"
-                name="datePagamento"
-                required
-              />
-              <div id="dateVencimentoHelp" class="form-text">
-                A data deve ser inserida como dia/mes/ano.
+              <div class="col-md-4">
+                <label for="valorOriginal" class="form-label"
+                  >Valor da conta</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="valorOriginal"
+                  name="valorOriginal"
+                  required
+                />
+                <div class="invalid-feedback">Insira o valor da conta.</div>
               </div>
-              <div class="invalid-feedback">Insira o valor da conta.</div>
-            </div>
-            <div class="col-12 text-end">
-              <button type="submit" class="btn btn-primary">Enviar</button>
-              <button
-                class="btn btn-info"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-              >
-                Fechar
-              </button>
-            </div>
-          </form>
+              <div class="col-md-4">
+                <label for="dateVencimento" class="form-label"
+                  >Data de Vencimento</label
+                >
+                <input
+                  type="datetime"
+                  class="form-control"
+                  id="dateVencimento"
+                  name="dateVencimento"
+                  placeholder="dd/mm/yyyy"
+                  required
+                />
+                <div class="invalid-feedback">Insira a data de vencimento.</div>
+                <div id="dateVencimentoHelp" class="form-text">
+                  A data deve ser inserida como dia/mes/ano.
+                </div>
+              </div>
+              <div class="col-md-4">
+                <label for="datePagamento" class="form-label"
+                  >Data de Pagamento</label
+                >
+                <input
+                  type="datetime"
+                  class="form-control"
+                  id="datePagamento"
+                  name="datePagamento"
+                  placeholder="dd/mm/yyyy"
+                  required
+                />
+                <div id="dateVencimentoHelp" class="form-text">
+                  A data deve ser inserida como dia/mes/ano.
+                </div>
+                <div class="invalid-feedback">Insira o valor da conta.</div>
+              </div>
+              <div class="col-12 text-end">
+                <button type="submit" class="btn btn-primary">Enviar</button>
+                <button
+                  class="btn btn-info"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Fechar
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
         <div
           id="collapseOne"
-          class="accordion-collapse collapse show"
+          class="accordion-collapse collapse show border-0"
           aria-labelledby="headingTwo"
           data-bs-parent="#accordionExample"
         >
+          <div class="row">
+            <div class="col-8 pt-2">
+              <h1 class="fs-2">Listagem de contas a pagar</h1>
+            </div>
+            <div class="col pt-2">
+              <div class="p-3 text-end">
+                <button
+                  class="btn btn-info collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Criar conta
+                </button>
+              </div>
+            </div>
+          </div>
           <table class="table table-striped">
             <thead>
               <tr>

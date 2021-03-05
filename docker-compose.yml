@@ -1,0 +1,30 @@
+version: '3.5'
+
+services:
+
+  server:
+    container_name: nodejs
+    build: 
+      context: '.'
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/node-app
+      - ./node_modules:/node-app/node_modules
+    environment:
+      NODE_ENV: production
+      MONGO_DB: mongodb://db:27017/finances
+      PORT: 4000
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - '4000:4000'
+
+  db:
+    image: 'mongo'
+    container_name: MONGODB
+    ports:
+      - '27017:27017'
+    volumes:
+      - ./data/db:/data/db
